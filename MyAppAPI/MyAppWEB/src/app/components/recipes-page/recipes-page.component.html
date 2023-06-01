@@ -1,0 +1,9 @@
+<div *ngIf="recipes" class="content">
+    <h2>Przepisy</h2>
+    <div class="recipes">
+        <app-recipe-template></app-recipe-template>
+        <ng-container *ngFor="let recipe of recipes">
+            <app-recipe-template (deleteAction)="fetchData()" [recipe]="recipe"></app-recipe-template>
+        </ng-container>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+.content {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.ingredients {
+    border: 2px solid black;
+    padding: 15px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    margin: 5px;
+}

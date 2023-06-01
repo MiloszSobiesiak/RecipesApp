@@ -1,0 +1,63 @@
+<div class="content"> 
+    <div class="back">
+        <a routerLink="/recipes">Wróc do przepisów</a>
+    </div>
+    <input class="header" type="text" placeholder="Nazwa potrawy" [(ngModel)]="recipe.name">
+    <div class="properties">
+        <div class="flex-row">
+            <img src="/assets/food.svg">
+            <div class="property"> 
+                <span>Poziom trudności</span>
+                <app-star-rating (ratingUpdated)="addRate($event)"></app-star-rating>
+            </div>
+        </div>
+        <div class="flex-row">
+            <img src="/assets/time.svg">
+            <div class="property">
+                <span>Czas przygotowania</span>
+                <input type="text" [(ngModel)]="recipe.portions">
+            </div>
+        </div>
+        <div class="flex-row">
+            <img src="/assets/dish.svg">
+            <div class="property">
+                <span>Liczba porcji</span>
+                <input type="text" [(ngModel)]="recipe.preparationTime">
+            </div>
+        </div>       
+    </div>
+    <div class="main">
+        <div class="section">
+            <span class="title">Składniki:</span>
+            <div class="box section">
+                <div class="ingredients" *ngFor="let ingredient of ingredients; let i = index">
+                    <span class="flex-1-1">{{ingredient.name}}</span>
+                    <span class="flex-1-1">{{ingredient.amount}} {{ingredient.type}}</span>
+                    <span (click)="deleteIngredient(ingredient)"><img class="delete" src="/assets/delete.svg"></span>
+                </div>
+                <input type="text" #inputName placeholder="Nazwa składnika" [(ngModel)]="ingredient.name">
+                <input type="text" placeholder="Ilość"  [(ngModel)]="ingredient.amount">
+                <select [(ngModel)]="ingredient.type" (keydown)="test($event)">
+                    <ng-container *ngFor="let type of ingredientsTypes | keyvalue">
+                        <option [ngValue]="type.value">{{type.value}}</option>
+                    </ng-container>
+                </select>
+            </div>
+            <app-button class="button" (click)="addIngredient()" name="Dodaj składnik" [size]="20"></app-button>
+        </div>
+        <div class="section">
+            <span class="title">Opis:</span>
+            <div class="box section">
+                <span id="textarea" class="textarea" contenteditable></span>
+            </div>
+        </div>
+    </div>
+    <app-button (click)="addRecipe()" [disabled]="!isDisabled()" name="Dodaj przepis" [size]="20"></app-button>
+</div>
+
+<mat-form-field>
+ <textarea class="essa" matInput
+            cdkTextareaAutosize
+            cdkAutosizeMinRows="1"
+            cdkAutosizeMaxRows="10" [(ngModel)]="recipe.name"></textarea>
+</mat-form-field>

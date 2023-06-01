@@ -1,0 +1,15 @@
+<div *ngIf="recipe; else addRecipe" class="content">
+    <mat-icon class="fav" (click)="addToFavourtie(recipe.id)">
+        {{showIcon()}}
+    </mat-icon>
+    <span class="delete" (click)="deleteRecipe(recipe.id)"><img src="/assets/delete.svg"></span>
+    <h3 class="text-middle header">{{recipe.name}}</h3>
+    <app-button name="Więcej" [link]="'/recipe/'+recipe.id"></app-button>
+</div>
+
+<ng-template #addRecipe >
+    <div class="content">
+        <h3 class="text-middle">Dodaj nowy przepis</h3>
+        <app-button [link]="'/add-recipe'" name="Dodaj przepis"></app-button>
+    </div>
+</ng-template >

@@ -1,0 +1,36 @@
+<div class="content" *ngIf="recipe">
+    <div class="back">
+        <a routerLink="/recipes">Wróc do przepisów</a>
+        <a (click)="saveChanges()"> Zapisz zmiany</a>
+    </div>
+    <app-edit-view>
+        <ng-template view>
+            <h1 class="header">{{recipe.name}}</h1>
+        </ng-template>
+        <ng-template edit>
+            <app-input [(value)]="recipe.name"></app-input>
+        </ng-template>
+    </app-edit-view>
+
+    <div class="main">
+        <span>
+            <app-edit-view>
+                <ng-template view>
+                    <app-ingredients [(ingredients)]="recipe.ingredients"></app-ingredients>
+                </ng-template>
+                <ng-template edit>
+                    <app-ingredients [editTemplate]="true" [ingredients]="recipe.ingredients"></app-ingredients>
+                </ng-template>
+            </app-edit-view> 
+        </span>
+
+        <app-edit-view>
+            <ng-template view>
+                <app-description [desc]="recipe.description"></app-description>
+            </ng-template>
+            <ng-template edit>
+                <app-input [textarea]="true" [(value)]="recipe.description"></app-input>
+            </ng-template>
+        </app-edit-view>
+    </div>
+</div>

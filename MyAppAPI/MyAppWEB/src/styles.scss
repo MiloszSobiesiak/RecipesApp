@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+html {
+    height: 100%;
+    display: block;
+}
+
+body {
+    display: flex;
+    height: 100%;
+    overflow: auto;
+    margin: 0;
+}
+
+.text-middle {
+    text-align: center;
+}
+
+$xs: 4px;
+$base: 8px;
+$sm: 2*$base;
+$md: 3*$base;
+$lg: 4*$base;
+$xl: 5*$base;
+
+$base-top: 100px;
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.snackbar {
+    padding: 0 !important;
+}

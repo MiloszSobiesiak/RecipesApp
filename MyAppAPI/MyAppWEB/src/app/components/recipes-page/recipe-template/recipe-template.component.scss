@@ -1,0 +1,36 @@
+@import '/src/styles.scss';
+
+.content {
+    width: 250px;
+    height: 250px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.delete {
+    position: absolute;
+    right: $xs;
+    top: $xs;
+}
+
+.fav {
+    position: absolute;
+    left: $xs;
+    top: $xs;
+    transform: scale(1.1);
+}
+
+.header {
+    margin-top: $lg;
+}
+
+img {
+    width: 25px;
+    height: 25px;
+}

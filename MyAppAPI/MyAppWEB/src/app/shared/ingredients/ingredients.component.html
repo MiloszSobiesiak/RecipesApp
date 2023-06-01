@@ -1,0 +1,30 @@
+<ng-container *ngIf="!editTemplate; else editDupsko">
+    <div class="content">
+        <h2>Składniki</h2>
+        <div class="ingredients">
+            <div class="ingredients" *ngFor="let ingredient of ingredients; let i = index">
+                <span class="flex-1-1">{{ingredient.name}}</span>
+                <span class="flex-1-1">{{ingredient.amount}} {{ingredient.type}}</span>
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+<ng-template #editDupsko>
+    <span *ngIf="ingredients">
+        <div *ngFor="let ingredient of ingredients; let i = index">
+            <app-input class="flex-1-1" [(value)]="ingredient.name"></app-input>
+            <app-input class="flex-1-1" [(value)]="ingredient.amount"></app-input>
+            <span class="flex-1-1">{{ingredient?.type}}</span>
+            <span (click)="deleteIngredient(ingredient)"><img class="delete" src="/assets/delete.svg"></span>
+        </div>
+        <app-input class="flex-1-1" placeholder="Nazwa składnika"  [(value)]="newIngredient.name"></app-input>
+        <app-input class="flex-1-1" placeholder="Ilość"  [(value)]="newIngredient.amount"></app-input>
+        <select [(ngModel)]="newIngredient.type" (keydown)="test($event)">
+            <ng-container *ngFor="let type of ingredientsTypes | keyvalue">
+                <option [ngValue]="type.value">{{type.value}}</option>
+            </ng-container>
+        </select>
+        <app-button class="button" (click)="addIngredient()" name="Dodaj składnik" [size]="20"></app-button>
+    </span>
+</ng-template>

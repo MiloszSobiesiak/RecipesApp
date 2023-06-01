@@ -1,0 +1,110 @@
+@import '/src/styles.scss';
+
+:host {
+    display: flex; 
+    flex: 1 1 auto;
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: $xl 0;
+    column-gap: 5*$xl;
+    row-gap: 2*$xl;
+}
+
+.properties {
+    width: 100%;
+    margin: $xl 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    flex-direction: row;
+    row-gap: $xl;
+}
+
+.property {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+}
+
+.box {
+    border: 1px solid black;
+    padding: 20px;
+    border-radius: $base;
+}
+
+.content {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    align-items: center;
+}
+
+.back {
+    display: flex;
+    width: 100%;
+    justify-content: left;
+
+    a {
+        text-decoration: none;
+    }
+}
+
+input, select {
+    font-size: $md;
+}
+
+.test {
+    height: 100px;
+}
+
+.title {
+    font-size: $md;
+    margin-bottom: $sm;
+}
+
+.textarea {
+    width: 400px;
+    font-size: $md;
+    border: 1px solid black;
+}
+
+.textarea[contenteditable]:empty::before {
+    content: "Sposób przygotowania";
+    color: gray;
+  }
+
+.header {
+    margin: $xl 0;
+}
+
+.ingredients {
+    display: flex;
+}
+
+.flex-1-1 {
+    flex: 1 1 auto;
+}
+
+img {
+    width: 60px;
+    height: 60px;
+}
+
+.delete { 
+    width: 25px;
+    height: 25px;
+}

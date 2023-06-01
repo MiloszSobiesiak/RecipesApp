@@ -1,0 +1,14 @@
+.button {
+    border: 1px solid black;
+    border-radius: 15px;
+    margin: 15px;
+    padding: 5px 15px 5px 15px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.disabled {
+    background-color: gray;
+    cursor: not-allowed;
+    pointer-events: none;
+}

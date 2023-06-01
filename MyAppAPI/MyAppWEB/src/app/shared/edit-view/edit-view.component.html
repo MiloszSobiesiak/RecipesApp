@@ -1,0 +1,3 @@
+<ng-container *ngIf="mode|async as currentMode">
+    <ng-container *ngTemplateOutlet="currentMode === 'view' ? view : edit"></ng-container>
+</ng-container>
