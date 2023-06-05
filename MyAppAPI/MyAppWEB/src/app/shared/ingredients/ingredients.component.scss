@@ -1,3 +1,5 @@
+@import '/src/styles.scss';
+
 .content {
     margin: 20px;
     display: flex;
@@ -12,6 +14,15 @@
     flex-direction: column;
 }
 
-.row {
-    margin: 5px;
+.ingredient-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: $sm;
+    width: 350px;
+}
+
+.delete {
+    width: $md;
+    height: $md;
 }

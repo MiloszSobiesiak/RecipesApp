@@ -1,7 +1,9 @@
 <div class="navbar">
-    <div class="menu-button" (click)="menuService.sideMenuVisible = !menuService.sideMenuVisible">
-        <img src="/assets/menu.svg">
-    </div>
+  <div
+    class="menu-button"
+    (click)="menuService.sideMenuVisible = !menuService.sideMenuVisible">
+    <img src="/assets/menu.svg" />
+  </div>
+</div>
+<a (click)="start()">start edit</a> <a (click)="stop()">stop edit</a>
 
-</div>    <a (click)="start()">start edit</a>
-<a (click)="stop()">stop edit</a>

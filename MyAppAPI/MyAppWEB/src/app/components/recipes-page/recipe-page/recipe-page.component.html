@@ -1,7 +1,7 @@
 <div class="content" *ngIf="recipe">
     <div class="back">
-        <a routerLink="/recipes">Wróc do przepisów</a>
-        <a (click)="saveChanges()"> Zapisz zmiany</a>
+        <a *ngIf="!edit" routerLink="/recipes">Wróc do przepisów</a>
+        <a *ngIf="edit" (click)="saveChanges()"> Zapisz zmiany</a>
     </div>
     <app-edit-view>
         <ng-template view>

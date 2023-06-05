@@ -1,5 +1,5 @@
 <ng-container *ngIf="!textarea; else textAreaTemplate">
-    <input type="text" [placeholder]="placeholder" [(ngModel)]="value" (ngModelChange)="valueChange.emit(value)">
+    <input type="text" [placeholder]="placeholder" [style.width]="width + 'px'" [(ngModel)]="value" (ngModelChange)="valueChange.emit(value)">
 </ng-container>
 
 <ng-template #textAreaTemplate>

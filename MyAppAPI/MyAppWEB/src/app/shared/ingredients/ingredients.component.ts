@@ -5,10 +5,9 @@ import { IngredientsType } from '../enums/ingredients-type.enum';
 @Component({
   selector: 'app-ingredients',
   templateUrl: './ingredients.component.html',
-  styleUrls: ['./ingredients.component.scss']
+  styleUrls: ['./ingredients.component.scss'],
 })
 export class IngredientsComponent {
-
   @Input()
   public ingredients: Ingredient[];
 
@@ -21,19 +20,18 @@ export class IngredientsComponent {
   public newIngredient: Ingredient = {
     name: '',
     amount: '',
-    type: ''
-  }
-  
+    type: '',
+  };
+
   public ingredientsTypes = IngredientsType;
 
-  public deleteIngredient(ingredient: Ingredient) {
-    console.log('dadadada')
-    this.ingredients = this.ingredients.filter( e=> {
-      return e !== ingredient
-    })
+  public deleteIngredient(ingredient: Ingredient): void {
+    this.ingredients = this.ingredients.filter((e) => {
+      return e !== ingredient;
+    });
   }
 
-  public addIngredient() {
+  public addIngredient(): void {
     this.ingredients.push(this.newIngredient);
     this.newIngredient = {
       name: '',
@@ -41,5 +39,4 @@ export class IngredientsComponent {
       type: '',
     };
   }
-
 }

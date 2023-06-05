@@ -28,6 +28,10 @@ export class RecipesService {
       return this.http.put<number>(`${environment.apiUrl}/dish`, formData)
     }
 
+    public updateDish(dish: Recipe): Observable<Recipe> {
+      return this.http.put<Recipe>(`${environment.apiUrl}/dish/update`, dish)
+    }
+
     public deleteRecipe(id: number): Observable<Recipe> {
       return this.http.delete<Recipe>(`${environment.apiUrl}/dish/${id}`);
     }

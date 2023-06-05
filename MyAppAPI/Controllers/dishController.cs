@@ -86,5 +86,30 @@ namespace MyAppAPI.Controllers
 
             return Ok();
         }
+
+        [HttpPut]
+        [Route("update")]
+        public async Task<ActionResult<List<dish>>> UpdateDish(dish dish)
+        {
+
+            var updateDish = await _context.dishes.FindAsync(dish.Id);
+
+            if (updateDish == null)
+            {
+                return BadRequest("There is no dish with this id!");
+            }
+
+            updateDish.Ingredients = dish.Ingredients;
+            updateDish.Name = dish.Name;
+            updateDish.Portions = dish.Portions;
+            updateDish.DifficultyLevel = dish.DifficultyLevel;
+            updateDish.PreparationTime = dish.PreparationTime;
+            updateDish.Description = dish.Description;
+
+            await _context.SaveChangesAsync();
+
+            return Ok(dish);
+
+        }
     }
 }
