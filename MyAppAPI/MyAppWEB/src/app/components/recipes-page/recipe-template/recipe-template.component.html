@@ -1,15 +1,41 @@
 <div *ngIf="recipe; else addRecipe" class="content">
-    <mat-icon class="fav" (click)="addToFavourtie(recipe.id)">
-        {{showIcon()}}
-    </mat-icon>
-    <span class="delete" (click)="deleteRecipe(recipe.id)"><img src="/assets/delete.svg"></span>
-    <h3 class="text-middle header">{{recipe.name}}</h3>
-    <app-button name="Więcej" [link]="'/recipe/'+recipe.id"></app-button>
+  <mat-icon class="fav pointer" (click)="addToFavourtie(recipe.id)">
+    {{ showIcon() }}
+  </mat-icon>
+  <span class="delete pointer" (click)="deleteRecipe(recipe.id)"
+    ><img src="/assets/delete.svg"
+  /></span>
+  <h3 class="text-middle header">{{ recipe.name }}</h3>
+  <div class="informations">
+    <span class="d-flex-middle">
+      <img src="/assets/food.svg" />
+      <span>{{ recipe.difficultyLevel }}</span>
+    </span>
+    <span class="d-flex-middle">
+      <img src="/assets/time.svg" />
+      <span> {{ recipe.preparationTime }}min</span>
+    </span>
+    <span class="d-flex-middle">
+      <img src="/assets/dish.svg" />
+      <span>{{ recipe.portions }}</span>
+    </span>
+  </div>
+  <app-button
+    name="Więcej"
+    textColor="#FFFFFF"
+    backgroundColor="#434e78"
+    [link]="'/recipe/' + recipe.id"
+  ></app-button>
 </div>
 
-<ng-template #addRecipe >
-    <div class="content">
-        <h3 class="text-middle">Dodaj nowy przepis</h3>
-        <app-button [link]="'/add-recipe'" name="Dodaj przepis"></app-button>
-    </div>
-</ng-template >
+<ng-template #addRecipe>
+  <div class="content">
+    <h3 class="text-middle">Dodaj nowy przepis</h3>
+    <app-button
+      [link]="'/add-recipe'"
+      textColor="#FFFFFF"
+      backgroundColor="#434e78"
+      name="Dodaj przepis"
+    ></app-button>
+  </div>
+</ng-template>

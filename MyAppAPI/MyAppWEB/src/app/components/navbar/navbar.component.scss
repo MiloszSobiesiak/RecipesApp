@@ -1,3 +1,5 @@
+@import '/src/styles.scss';
+
 :host {
     display: flex;
     flex: 1 1 auto;
@@ -7,5 +9,16 @@
 .navbar {
     height: 50px;
     width: 100%;
-    background-color: red;
+    background: rgb(67,78,120);
+    background: linear-gradient(90deg, $c-primary 0%, rgba(226,174,162,1) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu-button {
+    width: $lg;
+    height: $lg;
+    color: white;
+    margin-left: $base;
 }

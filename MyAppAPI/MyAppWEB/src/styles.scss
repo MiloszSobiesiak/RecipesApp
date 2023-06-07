@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Ysabeau:wght@300&display=swap');
+
 html {
     height: 100%;
     display: block;
@@ -9,10 +11,21 @@ body {
     height: 100%;
     overflow: auto;
     margin: 0;
+    font-family: 'Ysabeau' !important;
 }
 
 .text-middle {
     text-align: center;
+}
+
+.d-flex-middle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pointer {
+    cursor: pointer;
 }
 
 $xs: 4px;
@@ -22,6 +35,8 @@ $md: 3*$base;
 $lg: 4*$base;
 $xl: 5*$base;
 $xxl: 7*$base;
+
+$c-primary: #434e78;
 
 $base-top: 100px;
 html, body { height: 100%; }

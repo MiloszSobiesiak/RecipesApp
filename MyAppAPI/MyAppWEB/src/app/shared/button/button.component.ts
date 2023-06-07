@@ -6,7 +6,6 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./button.component.scss']
 })
 export class ButtonComponent {
-
   @Input()
   public name: string;
   @Input()
@@ -15,6 +14,8 @@ export class ButtonComponent {
   public disabled = false;
   @Input()
   public size: number;
-
-  constructor() { }
+  @Input()
+  backgroundColor: string;
+  @Input()
+  textColor: string;
 }

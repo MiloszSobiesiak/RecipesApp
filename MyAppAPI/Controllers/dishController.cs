@@ -20,13 +20,13 @@ namespace MyAppAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<List<dish>>> GetDishes()
         {
-
             var dishes = await _context.dishes.Select(dish => new { 
                 id = dish.Id,
                 name = dish.Name,
                 isFavortie = dish.isFavorite,
                 portions = dish.Portions,
-                difficultyLevel = dish.DifficultyLevel
+                difficultyLevel = dish.DifficultyLevel,
+                preparationTime = dish.PreparationTime
             }).ToListAsync();
 
             return Ok(dishes);

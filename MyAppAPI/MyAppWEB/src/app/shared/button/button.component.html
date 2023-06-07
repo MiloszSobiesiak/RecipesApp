@@ -1,3 +1,14 @@
-<div class="button" [routerLink]="link" [ngClass]="disabled ? 'disabled' : ''">
-    <span class="text" [style.font-size]="size+'px'">{{name}}</span>
+<div
+  class="button"
+  [style.background-color]="backgroundColor"
+  [routerLink]="link"
+  [ngClass]="disabled ? 'disabled' : ''"
+>
+  <span
+    class="text"
+    [style.font-size]="size + 'px'"
+    [style.color]="textColor"
+    [style.background-color]="backgroundColor"
+    >{{ name }}</span
+  >
 </div>

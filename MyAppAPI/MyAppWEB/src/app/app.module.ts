@@ -45,7 +45,7 @@ import { InputComponent } from './shared/input/input.component';
     EditViewComponent,
     ViewDirective,
     EditDirective,
-    InputComponent
+    InputComponent,
   ],
   imports: [
     BrowserModule,

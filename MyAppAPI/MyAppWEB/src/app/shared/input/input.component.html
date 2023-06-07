@@ -1,12 +1,24 @@
 <ng-container *ngIf="!textarea; else textAreaTemplate">
-    <input type="text" [placeholder]="placeholder" [style.width]="width + 'px'" [(ngModel)]="value" (ngModelChange)="valueChange.emit(value)">
+  <input
+    type="text"
+    [placeholder]="placeholder"
+    [style.font-size]="fontSize + 'px'"
+    [style.width]="width + 'px'"
+    [(ngModel)]="value"
+    (ngModelChange)="valueChange.emit(value)"
+  />
 </ng-container>
 
 <ng-template #textAreaTemplate>
-    <mat-form-field style="width: 300px;"  appearance="none"> 
-        <textarea class="textarea" matInput
-                   cdkTextareaAutosize
-                   cdkAutosizeMinRows="1"
-                   cdkAutosizeMaxRows="10" [(ngModel)]="value" (ngModelChange)="valueChange.emit(value)"></textarea>
-       </mat-form-field>
+  <mat-form-field [style.width]="width+'px'" appearance="none">
+    <textarea
+      class="textarea"
+      matInput
+      cdkTextareaAutosize
+      cdkAutosizeMinRows="1"
+      cdkAutosizeMaxRows="10"
+      [(ngModel)]="value"
+      (ngModelChange)="valueChange.emit(value)"
+    ></textarea>
+  </mat-form-field>
 </ng-template>
