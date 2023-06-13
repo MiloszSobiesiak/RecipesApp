@@ -3,15 +3,15 @@ import { ActivatedRoute } from '@angular/router';
 import { Recipe } from 'src/app/models/recipe.model';
 import { IngredientsService } from 'src/app/services/ingredients.service';
 import { RecipesService } from 'src/app/services/recipes.service';
+import { NotificationsService } from 'src/app/shared/notifications/notifications.service';
 import { EditingModeService } from 'src/app/shared/services/editing-mode.service';
 
 @Component({
   selector: 'app-recipe-page',
   templateUrl: './recipe-page.component.html',
-  styleUrls: ['./recipe-page.component.scss']
+  styleUrls: ['./recipe-page.component.scss'],
 })
 export class RecipePageComponent implements OnInit {
-
   public id: number;
   public recipe: Recipe;
   public edit: boolean;
@@ -19,22 +19,25 @@ export class RecipePageComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private recipesService: RecipesService,
-    private editService: EditingModeService
-  ) 
-  {}
-
+    private editService: EditingModeService,
+    private notificationService: NotificationsService
+  ) {}
 
   public ngOnInit(): void {
     this.id = +this.route?.snapshot?.paramMap?.get('id');
-    this.recipesService.getRecipe(this.id).subscribe(recipe=>{
+    this.recipesService.getRecipe(this.id).subscribe((recipe) => {
       this.recipe = recipe;
-    })
-    this.editService.getMode().subscribe( e=> {
+    });
+    this.editService.getMode().subscribe((e) => {
       this.edit = e === 'edit';
-    })
+    });
   }
 
   public saveChanges(): void {
-    this.recipesService.updateDish(this.recipe).subscribe();
+    this.recipesService.updateDish(this.recipe).subscribe(
+      () => {
+        this.notificationService.success('Zapisano zmiany!');
+      }
+    );
   }
 }

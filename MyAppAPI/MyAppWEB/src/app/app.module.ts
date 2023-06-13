@@ -25,6 +25,7 @@ import { EditDirective, EditViewComponent, ViewDirective } from './shared/edit-v
 import { CommonModule } from '@angular/common';
 import {MatInputModule} from '@angular/material/input';
 import { InputComponent } from './shared/input/input.component';
+import { IconComponent } from './shared/icon/icon.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { InputComponent } from './shared/input/input.component';
     ViewDirective,
     EditDirective,
     InputComponent,
+    IconComponent,
   ],
   imports: [
     BrowserModule,

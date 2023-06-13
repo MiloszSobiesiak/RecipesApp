@@ -7,7 +7,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class EditingModeService {
 
   constructor() { }
-  private readonly mode = new BehaviorSubject<string>('view');
+  public readonly mode = new BehaviorSubject<string>('view');
 
   public getMode(): Observable<string> {
     return this.mode.asObservable();

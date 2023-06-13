@@ -15,7 +15,7 @@ export class ButtonComponent {
   @Input()
   public size: number;
   @Input()
-  backgroundColor: string;
+  public backgroundColor: string;
   @Input()
-  textColor: string;
+  public textColor: string;
 }

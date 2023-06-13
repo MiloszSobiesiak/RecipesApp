@@ -1,10 +1,18 @@
 <div class="navbar">
   <div>
-    <img class="menu-button" (click)="menuService.sideMenuVisible = !menuService.sideMenuVisible" src="/assets/menu.svg"/>
+    <app-icon
+      class="menu-button"
+      (click)="menuService.sideMenuVisible = !menuService.sideMenuVisible"
+      size="30px"
+      icon="menu"
+    ></app-icon>
   </div>
   <div>
-    <a class="edit-button" (click)="start()">start edit</a> 
+    <a *ngIf="$mode | async as mode" class="edit-button" (click)="changeMode()">
+      <app-icon
+        [icon]="mode === 'view' ? 'view' : 'edit'"
+        size="30px"
+      ></app-icon>
+    </a>
   </div>
 </div>
-
-

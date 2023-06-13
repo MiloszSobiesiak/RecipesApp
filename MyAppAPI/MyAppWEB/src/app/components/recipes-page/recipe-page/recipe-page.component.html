@@ -1,7 +1,6 @@
 <div class="content" *ngIf="recipe">
   <div class="back">
-    <a *ngIf="!edit" routerLink="/recipes">Wróc do przepisów</a>
-    <a *ngIf="edit" (click)="saveChanges()"> Zapisz zmiany</a>
+    <app-icon class="pointer back-button" *ngIf="!edit" icon="back" size="30px" routerLink="/recipes"></app-icon>
   </div>
   <div class="header">
     <app-edit-view class="d-flex-middle">
@@ -9,50 +8,52 @@
         <h1>{{ recipe.name }}</h1>
       </ng-template>
       <ng-template edit>
-        <app-input [(value)]="recipe.name" [fontSize]="32"></app-input>
+        <app-input [style.margin-top]="'50px'" [(value)]="recipe.name" [fontSize]="32"></app-input>
       </ng-template>
     </app-edit-view>
 
     <app-edit-view class="properties">
       <ng-template view>
         <span class="d-flex-middle">
-          <img src="/assets/food.svg" />
+          <app-icon size="50px" icon="food"></app-icon>
           <span class="header-text">{{ recipe.difficultyLevel }}</span>
         </span>
         <span class="d-flex-middle">
-          <img src="/assets/time.svg" />
+          <app-icon size="50px" icon="time"></app-icon>
           <span class="header-text"> {{ recipe.preparationTime }}min</span>
         </span>
         <span class="d-flex-middle">
-          <img src="/assets/dish.svg" />
+          <app-icon size="50px" icon="dish"></app-icon>
           <span class="header-text">{{ recipe.portions }}</span>
         </span>
       </ng-template>
       <ng-template edit>
+        <div class="properties">
           <div class="d-flex-middle">
-            <img src="/assets/food.svg" />
+            <app-icon size="50px" icon="food"></app-icon>
             <app-star-rating
-              (ratingUpdated)="addRate($event)"
+              (ratingUpdated)="recipe.difficultyLevel = $event"
             ></app-star-rating>
           </div>
           <div class="d-flex-middle">
-            <img src="/assets/time.svg" />
+            <app-icon size="50px" icon="time"></app-icon>
             <app-input
               width="100"
               [fontSize]="24"
               placeholder="Czas przygotowania"
-              [(value)]="recipe.portions"
+              [(value)]="recipe.preparationTime"
             ></app-input>
           </div>
           <div class="d-flex-middle">
-            <img src="/assets/dish.svg" />
+            <app-icon size="50px" icon="dish"></app-icon>
             <app-input
               width="100"
               [fontSize]="24"
               placeholder="Liczba porcji"
-              [(value)]="recipe.preparationTime"
+              [(value)]="recipe.portions"
             ></app-input>
           </div>
+        </div>
       </ng-template>
     </app-edit-view>
   </div>
@@ -76,12 +77,21 @@
       </ng-template>
       <ng-template edit>
         <div class="description">
-            <h2>Przygotowanie</h2>
-            <div class="test">
-                <app-input width="320" [textarea]="true" [(value)]="recipe.description"></app-input>
-            </div>
+          <h2>Przygotowanie</h2>
+          <div class="test">
+            <app-input
+              width="320"
+              [textarea]="true"
+              [(value)]="recipe.description"
+            ></app-input>
+          </div>
         </div>
       </ng-template>
     </app-edit-view>
   </div>
+  <app-edit-view class="d-flex-middle">
+    <ng-template edit>
+      <app-button (click)="saveChanges()" name="Zapisz zmiany"></app-button>
+    </ng-template>
+  </app-edit-view>
 </div>
