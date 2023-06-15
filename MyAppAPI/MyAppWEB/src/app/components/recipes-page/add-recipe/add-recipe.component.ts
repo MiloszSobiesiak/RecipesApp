@@ -3,7 +3,7 @@ import { Ingredient } from 'src/app/models/ingredient.model';
 import { Recipe } from 'src/app/models/recipe.model';
 import { RecipesService } from 'src/app/services/recipes.service';
 import { IngredientsType } from 'src/app/shared/enums/ingredients-type.enum';
-import { NotificationsService } from 'src/app/shared/notifications/notifications.service';
+import { NotificationsService, TOAST_STATE } from 'src/app/shared/notifications/notifications.service';
 
 @Component({
   selector: 'app-add-recipe',
@@ -52,7 +52,7 @@ export class AddRecipeComponent {
           this.recipe.preparationTime = null;
         },
         (err) => {
-          this.notificationService.success(err.error);
+          this.notificationService.notify(TOAST_STATE.success, err.err);
         }
       );
     }

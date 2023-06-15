@@ -1,4 +1,17 @@
-<div class="snackbar" [style.background-color]="notificationService.backgroundColor">
-    <div>{{notificationService.title}}</div>
-    <div>{{data}}</div>
+<div
+  *ngIf="notificationService.isVisible | async"
+  class="toast-class"
+  [@slideInOut]
+>
+  <div class="d-flex-start" [ngClass]="notificationService.toastState | async">
+    <span class="header">
+        {{ notificationService.toastState | async }}!
+    </span>
+    <app-icon class="close-button" icon="close" (click)="closeNotification()"></app-icon>
+  </div>
+  <div class="d-flex-start">
+    <span class="text">
+        {{ notificationService.toastMessage | async }}
+    </span>
+  </div>
 </div>

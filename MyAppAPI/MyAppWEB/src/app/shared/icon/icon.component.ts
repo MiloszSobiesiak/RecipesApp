@@ -1,10 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import {
-  Component,
-  ElementRef,
-  HostBinding,
-  Input
-} from '@angular/core';
+import { Component, ElementRef, HostBinding, Input } from '@angular/core';
 import { Observable, Subject, takeUntil } from 'rxjs';
 import { CacheService } from '../services/cache.service';
 
@@ -15,12 +10,12 @@ import { CacheService } from '../services/cache.service';
 })
 export class IconComponent {
   @Input()
-  public set icon(data: string ) {
+  public set icon(data: string) {
     if (data) {
       this.iconName = data;
       this.updateIcon();
     }
-  };
+  }
 
   @Input()
   @HostBinding('style.width')
@@ -57,14 +52,13 @@ export class IconComponent {
     this.loadIcon(url)
       .pipe(takeUntil(this.gc))
       .subscribe((svg) => {
-        (this.el.nativeElement.innerHTML = svg), console.log(svg);
+        this.el.nativeElement.innerHTML = svg;
       });
   }
 
   private loadIcon(url: string): Observable<string> {
     const cacheKey = this.getCacheKey(url);
     if (!this.cache.has(cacheKey)) {
-      console.log('siema')
       this.cache.willSet(cacheKey);
       this.http.get(url, { responseType: 'text' }).subscribe((svg) => {
         this.cache.set(cacheKey, svg);

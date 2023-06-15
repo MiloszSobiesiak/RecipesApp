@@ -6,6 +6,8 @@ html {
     display: block;
 }
 
+app-notifications, .toast-class {   z-index: 2; }
+
 body {
     display: flex;
     height: 100%;

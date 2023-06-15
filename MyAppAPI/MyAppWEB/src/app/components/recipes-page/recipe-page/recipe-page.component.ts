@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Recipe } from 'src/app/models/recipe.model';
 import { IngredientsService } from 'src/app/services/ingredients.service';
 import { RecipesService } from 'src/app/services/recipes.service';
-import { NotificationsService } from 'src/app/shared/notifications/notifications.service';
+import { NotificationsService, TOAST_STATE } from 'src/app/shared/notifications/notifications.service';
 import { EditingModeService } from 'src/app/shared/services/editing-mode.service';
 
 @Component({
@@ -36,7 +36,7 @@ export class RecipePageComponent implements OnInit {
   public saveChanges(): void {
     this.recipesService.updateDish(this.recipe).subscribe(
       () => {
-        this.notificationService.success('Zapisano zmiany!');
+        this.notificationService.notify(TOAST_STATE.success, 'Zapisano zmiany!');
       }
     );
   }

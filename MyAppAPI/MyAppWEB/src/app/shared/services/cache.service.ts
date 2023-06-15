@@ -25,7 +25,6 @@ export class CacheService {
     if (this.willHas(key)) {
       (this.storage[key] as Subject<string>).next(value);
     }
-
     this.storage[key] = value;
   }
 
