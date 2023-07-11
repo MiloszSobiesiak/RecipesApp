@@ -35,12 +35,13 @@
 .section {
     display: flex;
     flex-direction: column;
+    justify-content: top;
 }
 
 .box {
-    border: 1px solid black;
-    padding: 20px;
-    border-radius: $base;
+    border: 2px solid black;
+    padding: 15px;
+    border-radius: 15px;
 }
 
 .content {
@@ -63,9 +64,4 @@
 .title {
     font-size: $md;
     margin-bottom: $sm;
-}
-
-img {
-    width: $xxl;
-    height: $xxl;
 }

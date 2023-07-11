@@ -26,6 +26,7 @@ import { CommonModule } from '@angular/common';
 import {MatInputModule} from '@angular/material/input';
 import { InputComponent } from './shared/input/input.component';
 import { IconComponent } from './shared/icon/icon.component';
+import { CalendarComponent } from './components/calendar/calendar.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { IconComponent } from './shared/icon/icon.component';
     EditDirective,
     InputComponent,
     IconComponent,
+    CalendarComponent,
   ],
   imports: [
     BrowserModule,

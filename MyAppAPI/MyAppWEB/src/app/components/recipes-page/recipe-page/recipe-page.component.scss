@@ -38,6 +38,7 @@
     justify-content: center;
     column-gap: $xxl;
     margin-top: $lg;
+    margin-bottom: $lg;
 }
 
 .header {
@@ -69,4 +70,9 @@
 .back-button {
     margin: $md;
     position: absolute;
+}
+
+.title {
+    font-size: $md;
+    margin-bottom: $sm;
 }

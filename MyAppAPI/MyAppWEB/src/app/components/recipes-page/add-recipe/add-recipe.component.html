@@ -1,42 +1,46 @@
 <div class="content">
+
   <div class="back">
     <a routerLink="/recipes">Wróc do przepisów</a>
   </div>
-  <app-input placeholder="Nazwa potrawy" [(value)]="recipe.name"></app-input>
+  <app-input [fontSize]="30" placeholder="Nazwa potrawy" [(value)]="recipe.name"></app-input>
   <div class="properties">
     <div class="flex-row">
-      <img src="/assets/food.svg" />
+      <app-icon size="50px" icon="food"></app-icon>
       <app-star-rating (ratingUpdated)="addRate($event)"></app-star-rating>
     </div>
     <div class="flex-row">
-      <img src="/assets/time.svg" />
+      <app-icon size="50px" icon="time"></app-icon>
       <app-input
         placeholder="Czas przygotowania"
         [(value)]="recipe.portions"
+        [fontSize]="15"
       ></app-input>
     </div>
     <div class="flex-row">
-      <img src="/assets/dish.svg" />
+      <app-icon size="50px" icon="dish"></app-icon>
       <app-input
         placeholder="Liczba porcji"
         [(value)]="recipe.preparationTime"
+        [fontSize]="15"
       ></app-input>
     </div>
   </div>
   <div class="main">
     <div class="section">
-      <span class="title">Składniki:</span>
-      <div class="box section">
         <app-ingredients
           [editTemplate]="true"
           [(ingredients)]="recipe.ingredients"
         ></app-ingredients>
-      </div>
     </div>
     <div class="section">
-      <span class="title">Opis:</span>
+      <span class="title">Opis</span>
       <div class="box section">
-        <app-input [textarea]="true" [(value)]="recipe.description"></app-input>
+        <app-input
+        width="320"
+        [textarea]="true"
+        [(value)]="recipe.description"
+      ></app-input>
       </div>
     </div>
   </div>

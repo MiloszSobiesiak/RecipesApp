@@ -1,9 +1,9 @@
 @import '/src/styles.scss';
 
 .content {
-    margin: 20px;
     display: flex;
     flex-direction: column;
+    justify-content: top;
 }
 
 .ingredients {
@@ -25,4 +25,9 @@
 .delete {
     width: $md;
     height: $md;
+}
+
+.title {
+    font-size: $md;
+    margin-bottom: $sm;
 }

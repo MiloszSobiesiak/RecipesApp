@@ -1,5 +1,6 @@
+@import '/src/styles.scss';
+
 .content {
-    margin: 20px;
     display: flex;
     flex-direction: column;
 }
@@ -14,4 +15,9 @@
 
 .row {
     margin: 5px;
+}
+
+.title {
+    font-size: $md;
+    margin-bottom: $sm;
 }
